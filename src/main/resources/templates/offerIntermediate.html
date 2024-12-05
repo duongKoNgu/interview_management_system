@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      window.addEventListener("load", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const encodedData = urlParams.get("data");
+
+        if (encodedData) {
+          const decodedData = JSON.parse(decodeURIComponent(encodedData));
+          const username = decodedData.username;
+          const password = decodedData.password;
+
+          console.log("Username:", username);
+          console.log("Password:", password);
+
+          localStorage.setItem("username", username);
+          localStorage.setItem("password", password);
+        }
+      });
+
+      window.onload = function () {
+        window.location.href = "http://127.0.0.1:5500/templates/offer.html";
+      };
+    </script>
+  </head>
+  <body>
+    <p>Đang chuyển hướng...</p>
+  </body>
+</html>
